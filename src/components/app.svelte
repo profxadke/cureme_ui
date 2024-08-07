@@ -1,6 +1,73 @@
-<App { ...f7params }>
+<script>
+  import { onMount } from 'svelte';
+  import { getDevice } from 'framework7/lite-bundle';
+  import {
+    f7,
+    f7ready,
+    App,
+    Panel,
+    Views,
+    View,
+    Popup,
+    Page,
+    Navbar,
+    Toolbar,
+    NavRight,
+    Link,
+    Block,
+    LoginScreen,
+    LoginScreenTitle,
+    List,
+    ListInput,
+    ListButton,
+    BlockFooter
+  } from 'framework7-svelte';
 
-  <!-- Left panel with cover effect-->
+  import capacitorApp from '../js/capacitor-app';
+  import routes from '../js/routes';
+  import store from '../js/store';
+
+  const device = getDevice();
+  let f7params = {
+    name: 'CureMe: Medical App',
+    theme: 'auto',
+    colors: {
+      primary: '#c7b8ea',
+    },
+    darkMode: true,
+    store: store,
+    routes: routes,
+    serviceWorker: process.env.NODE_ENV === 'production' ? {
+      path: '/service-worker.js',
+    } : {},
+    input: {
+      scrollIntoViewOnFocus: device.capacitor,
+      scrollIntoViewCentered: device.capacitor,
+    },
+    statusbar: {
+      iosOverlaysWebView: true,
+      androidOverlaysWebView: false,
+    },
+  };
+  let username = '';
+  let password = '';
+
+  function alertLoginData() {
+    f7.dialog.alert('Username: ' + username + '<br>Password: ' + password, () => {
+      f7.loginScreen.close();
+    });
+  }
+
+  onMount(() => {
+    f7ready(() => {
+      if (f7.device.capacitor) {
+        capacitorApp.init(f7);
+      }
+    });
+  });
+</script>
+
+<App { ...f7params }>
   <Panel left cover dark>
     <View>
       <Page>
@@ -10,8 +77,6 @@
     </View>
   </Panel>
 
-
-  <!-- Right panel with reveal effect-->
   <Panel right reveal dark>
     <View>
       <Page>
@@ -21,29 +86,26 @@
     </View>
   </Panel>
 
-
-  <!-- Views/Tabs container -->
   <Views tabs class="safe-areas">
-    <!-- Tabbar for switching views-tabs -->
     <Toolbar tabbar icons bottom>
       <Link tabLink="#view-home" tabLinkActive iconIos="f7:house_fill" iconMd="material:home" text="Home" />
-      <Link tabLink="#view-catalog" iconIos="f7:square_list_fill" iconMd="material:view_list" text="Catalog" />
+      <Link tabLink="#view-users" iconIos="f7:square_list_fill" iconMd="material:view_list" text="Users" />
+      <Link tabLink="#view-medications" iconIos="f7:pills" iconMd="material:medications" text="Medications" />
+      <Link tabLink="#view-appointments" iconIos="f7:calendar" iconMd="material:appointments" text="Appointments" />
+      <Link tabLink="#view-reminders" iconIos="f7:bell_fill" iconMd="material:reminders" text="Reminders" />
+      <Link tabLink="#view-notifications" iconIos="f7:envelope_fill" iconMd="material:notifications" text="Notifications" />
       <Link tabLink="#view-settings" iconIos="f7:gear" iconMd="material:settings" text="Settings" />
     </Toolbar>
 
-    <!-- Your main view/tab, should have "view-main" class. It also has "tabActive" prop -->
     <View id="view-home" main tab tabActive url="/" />
-
-    <!-- Catalog View -->
-    <View id="view-catalog" name="catalog" tab url="/catalog/" />
-
-    <!-- Settings View -->
+    <View id="view-users" name="users" tab url="/users/" />
+    <View id="view-medications" name="medications" tab url="/medications/" />
+    <View id="view-appointments" name="appointments" tab url="/appointments/" />
+    <View id="view-reminders" name="reminders" tab url="/reminders/" />
+    <View id="view-notifications" name="notifications" tab url="/notifications/" />
     <View id="view-settings" name="settings" tab url="/settings/" />
-
   </Views>
 
-
-  <!-- Popup -->
   <Popup id="my-popup">
     <View>
       <Page>
@@ -87,87 +149,3 @@
     </View>
   </LoginScreen>
 </App>
-
-
-<script>
-  import { onMount } from 'svelte';
-  import { getDevice }  from 'framework7/lite-bundle';
-  import {
-    f7,
-    f7ready,
-    App,
-    Panel,
-    Views,
-    View,
-    Popup,
-    Page,
-    Navbar,
-    Toolbar,
-    NavRight,
-    Link,
-    Block,
-    LoginScreen,
-    LoginScreenTitle,
-    List,
-    ListInput,
-    ListButton,
-    // BlockTitle,
-    // ListItem,
-    BlockFooter
-  } from 'framework7-svelte';
-
-  import capacitorApp from '../js/capacitor-app';
-  import routes from '../js/routes';
-  import store from '../js/store';
-
-  const device = getDevice();
-  // Framework7 Parameters
-  let f7params = {
-    name: 'CureMe: Medical App', // App name
-    theme: 'auto', // Automatic theme detection
-    colors: {
-      primary: '#c7b8ea',
-    },
-    darkMode: true,
-
-
-    // App store
-    store: store,
-    // App routes
-    routes: routes,
-
-    // Register service worker (only on production build)
-    serviceWorker: process.env.NODE_ENV ==='production' ? {
-      path: '/service-worker.js',
-    } : {},
-    // Input settings
-    input: {
-      scrollIntoViewOnFocus: device.capacitor,
-      scrollIntoViewCentered: device.capacitor,
-    },
-    // Capacitor Statusbar settings
-    statusbar: {
-      iosOverlaysWebView: true,
-      androidOverlaysWebView: false,
-    },
-  };
-  // Login screen demo data
-  let username = '';
-  let password = '';
-
-  function alertLoginData() {
-    f7.dialog.alert('Username: ' + username + '<br>Password: ' + password, () => {
-      f7.loginScreen.close();
-    });
-  }
-  onMount(() => {
-    f7ready(() => {
-
-      // Init capacitor APIs (see capacitor-app.js)
-      if (f7.device.capacitor) {
-        capacitorApp.init(f7);
-      }
-      // Call F7 APIs here
-    });
-  })
-</script>
