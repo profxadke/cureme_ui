@@ -1,6 +1,6 @@
 # CureMe: Medical App
 
-## Framework7 CLI Options
+## Basically, what the name/description says.
 
 Framework7 app created with following options:
 
@@ -23,7 +23,7 @@ Framework7 app created with following options:
     "iconFonts": true
   },
   "customBuild": false,
-  "pkg": "io.framework7.myapp",
+  "pkg": "io.framework7.cureme",
   "capacitor": {
     "platforms": [
       "ios",
@@ -37,7 +37,9 @@ Framework7 app created with following options:
 
 First of all we need to install dependencies, run in terminal
 ```
-npm install
+npm install -g npm pnpm
+pnpm init
+pnpm install
 ```
 
 ## NPM Scripts
@@ -97,8 +99,4 @@ Check out [official cordova-res documentation](https://github.com/ionic-team/cor
 * [Framework7 Icons Reference](https://framework7.io/icons/)
 * [Community Forum](https://forum.framework7.io)
 
-## Support Framework7
-
-Love Framework7? Support project by donating or pledging on:
-- Patreon: https://patreon.com/framework7
-- OpenCollective: https://opencollective.com/framework7
+* [CureMe REST API](https://github.com/profxadke/cureme_api)
