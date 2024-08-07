@@ -15,7 +15,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
-          <a href="#" class="link back" on:click="{() => window.history.back()}">Back</a>
+          <a href="/" class="link back" on:click="{() => window.history.back()}">Back</a>
         </div>
         <div class="title">Appointment Detail</div>
       </div>

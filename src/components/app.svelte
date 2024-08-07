@@ -70,6 +70,7 @@
 <App { ...f7params }>
   <Panel left cover dark>
     <View>
+      jskdljfskdjf
       <Page>
         <Navbar title="Left Panel"/>
         <Block>Left panel content goes here</Block>
@@ -86,13 +87,14 @@
     </View>
   </Panel>
 
-  <Views tabs class="safe-areas">
+  <!-- <Views tabs class="safe-areas"> -->
+  <Views tabs>
     <Toolbar tabbar icons bottom>
       <Link tabLink="#view-home" tabLinkActive iconIos="f7:house_fill" iconMd="material:home" text="Home" />
       <Link tabLink="#view-users" iconIos="f7:square_list_fill" iconMd="material:view_list" text="Users" />
       <Link tabLink="#view-medications" iconIos="f7:pills" iconMd="material:medications" text="Medications" />
-      <Link tabLink="#view-appointments" iconIos="f7:calendar" iconMd="material:appointments" text="Appointments" />
-      <Link tabLink="#view-reminders" iconIos="f7:bell_fill" iconMd="material:reminders" text="Reminders" />
+      <!-- <Link tabLink="#view-appointments" iconIos="f7:calendar" iconMd="material:appointments" text="Appointments" /> -->
+      <!-- <Link tabLink="#view-reminders" iconIos="f7:bell_fill" iconMd="material:reminders" text="Reminders" /> -->
       <Link tabLink="#view-notifications" iconIos="f7:envelope_fill" iconMd="material:notifications" text="Notifications" />
       <Link tabLink="#view-settings" iconIos="f7:gear" iconMd="material:settings" text="Settings" />
     </Toolbar>
@@ -100,8 +102,8 @@
     <View id="view-home" main tab tabActive url="/" />
     <View id="view-users" name="users" tab url="/users/" />
     <View id="view-medications" name="medications" tab url="/medications/" />
-    <View id="view-appointments" name="appointments" tab url="/appointments/" />
-    <View id="view-reminders" name="reminders" tab url="/reminders/" />
+    <!-- <View id="view-appointments" name="appointments" tab url="/appointments/" /> -->
+    <!-- <View id="view-reminders" name="reminders" tab url="/reminders/" /> -->
     <View id="view-notifications" name="notifications" tab url="/notifications/" />
     <View id="view-settings" name="settings" tab url="/settings/" />
   </Views>
