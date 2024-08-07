@@ -1,6 +1,4 @@
-
 import path from 'path';
-
 
 
 const SRC_DIR = path.resolve(__dirname, './src');

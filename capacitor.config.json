@@ -1,8 +1,8 @@
 {
-  "appId": "io.framework7.myapp",
+  "appId": "io.framework7.cureme",
   "appName": "CureMe: Medical App",
   "bundledWebRuntime": false,
-  "npmClient": "npm",
+  "npmClient": "pnpm",
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
