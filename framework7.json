@@ -1,0 +1,26 @@
+{
+  "cwd": "/home/rabin/Projects/cureme_custom_ui",
+  "type": [
+    "pwa",
+    "capacitor"
+  ],
+  "name": "CureMe: Medical App",
+  "framework": "svelte",
+  "template": "tabs",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": true,
+    "color": "#c7b8ea",
+    "darkMode": true,
+    "iconFonts": true
+  },
+  "customBuild": false,
+  "pkg": "io.framework7.myapp",
+  "capacitor": {
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}
