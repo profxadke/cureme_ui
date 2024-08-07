@@ -14,6 +14,8 @@
     {/each}
   </List>
 </Page>
+
+
 <script>
   import { Page, Navbar, Block, List, ListItem } from 'framework7-svelte';
 

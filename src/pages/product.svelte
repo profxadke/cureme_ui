@@ -5,6 +5,8 @@
     {currentProduct.description}
   </Block>
 </Page>
+
+
 <script>
   import { Page, Navbar, BlockTitle, Block, useStore } from 'framework7-svelte';
 

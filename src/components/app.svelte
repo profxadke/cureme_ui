@@ -87,6 +87,8 @@
     </View>
   </LoginScreen>
 </App>
+
+
 <script>
   import { onMount } from 'svelte';
   import { getDevice }  from 'framework7/lite-bundle';
@@ -104,13 +106,13 @@
     NavRight,
     Link,
     Block,
-    BlockTitle,
     LoginScreen,
     LoginScreenTitle,
     List,
-    ListItem,
     ListInput,
     ListButton,
+    // BlockTitle,
+    // ListItem,
     BlockFooter
   } from 'framework7-svelte';
 

@@ -26,6 +26,8 @@
     <Link onClick={() => f7router.back()}>Go back via Router API</Link>
   </Block>
 </Page>
+
+
 <script>
   import { Page, Navbar, Block, Link } from 'framework7-svelte';
 
